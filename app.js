@@ -1,4 +1,5 @@
 console.log("String Manipulation");
+const symbolRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?`~]/g;
 
 /*--------------------------------------------*/
 
@@ -96,8 +97,8 @@ console.log(protect_email("robin_singh@example.com"));
 //         let firstPart =  emailid.slice(0,3);
 //         console.log(firstPart +"..." +emailid.slice(position, emailid.length))
 //     }
-   
-    
+
+
 // }
 
 // email_hidder('rachitgupta815@gmail.com')
@@ -144,7 +145,7 @@ console.log(capitalize_Words('js string exercises'));
 
 // function capitalize_all(str){
 //     if(str.length == 0 ) return 0;
-    
+
 //      str = str.trim().split(" ");
 //      let newStr = str.map((val)=>(val[0].toUpperCase() + val.slice(1, val.length))).join(' ')
 //      console.log(newStr)
@@ -164,7 +165,7 @@ console.log(swapcase('AaBbc'));
 //      if(str.length == 0 )return null;
 //     let newStr = "";
 //     for(let x  = 0; x < str.length; x++){
-     
+
 //         if(str[x] == str[x].toLowerCase()){
 //             newStr += str[x].toUpperCase()
 //         }
@@ -212,7 +213,7 @@ console.log(uncamelize('helloWorld','_'));
 "hello-world"
 "hello_world"*/
 
-/*---------------------------------------------------------------*/ 
+/*---------------------------------------------------------------*/
 
 
 /*Write a JavaScript function to concatenate a given string n times (default is 1).
@@ -233,7 +234,7 @@ console.log(repeat('Ha!',3));
 //     for(let x = 0; x < num; x++){
 //         result += str
 //     }
-    
+
 //     console.log(result)
 // }
 
@@ -251,7 +252,7 @@ console.log(insert('We are doing some exercises.','JavaScript ',18));
 "We are doing some JavaScript exercises."*/
 
 // function StringInsertor(str, addOn, Position){
- 
+
 //     console.log(str.slice(0, Position) + addOn + str.slice(Position))
 // }
 
@@ -273,7 +274,7 @@ console.log(text_truncate('We are doing JS string exercises.',15,'!!'))
 //         str =  str.slice(0,size) + "......"
 //     }
 //     console.log(str)
-   
+
 // } 
 
 // formatter("11565456",3)
@@ -370,7 +371,7 @@ Output :
 //         }
 //         console.log(result);
 // }
-   
+
 // }
 
 
@@ -431,12 +432,261 @@ console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog
 Output :
 "The quick brown fox jumps over lazy dog"*/
 
-function remove_first_occurrence(str, substr){
-    str = str.toLowerCase().split(' ');
-    substr =  substr.toLowerCase();
-    let counter = 0;
-    console.log(str)
-}
+// function remove_first_occurrence(str, substr){
+//     str = str.toLowerCase().split(' ');
+//     substr =  substr.toLowerCase();
+//     let counter = 0;
+//     for(let x = 0; x < str.length; x++){
+//         if(str[x] === substr){
+//             counter = counter + 1;
+//         }
+//     }
+//     console.log(str)
+// }
 
 
-remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the')
+// remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the')  
+
+/*Write a JavaScript function to find a word within a string.
+Test Data :
+console.log(search_word('The quick brown fox', 'fox'));
+console.log(search_word('aa, bb, cc, dd, aa', 'aa'));
+Output :
+"'fox' was found 1 times."
+"'aa' was found 2 times."*/
+
+// function search_word(str, word){
+// str = str.replace(symbolRegex, '').trim().split(' ');
+// let counter = 0;
+
+// for(let x =0; x<str.length; x++){
+//     if(str[x] == word){
+
+//         counter++
+//     }
+// }
+// console.log(`word : ${counter} times`)
+// }
+
+// search_word('aa, bb, cc, dd, aa', 'aa')
+
+
+/*Write a JavaScript function that checks whether a string ends with a specified suffix.
+Test Data :
+console.log(string_endsWith('JS PHP  PYTHON','PYTHON'));
+true
+console.log(string_endsWith('JS PHP PYTHON',''));
+false*/
+
+// function string_endsWith(str, word){
+//      return str.endsWith(word);
+// }
+// console.log(string_endsWith('JS PHP  PYTHON','PYTHON'));
+// console.log(string_endsWith('JS PHP PYTHON',"R"));
+
+/*Write a JavaScript function to remove non-word characters.
+Test Data :
+console.log(remove_non_word('PHP ~!@#$%^&*()+`-={}[]|\\:";\'/?><., MySQL'));
+"PHP - MySQL"*/
+
+// function remove_non_word(str){
+//     return str.replace(symbolRegex, '').trim().split(' ').join('-');
+// }
+
+
+// console.log(remove_non_word('PHP ~!@#$%^&*()+`-={}[]|\\:";\'/?><., MySQL'))
+
+
+/*Write a JavaScript function to convert a string to title case.
+Test Data :
+console.log(sentenceCase('PHP exercises.  python exercises.'));
+"Php Exercises. Python Exercises."*/
+
+// function sentenceCase(str){
+//     if(str.length == 0) return null;
+//     let result = str.split(' ').map((word)=>word.charAt(0).toUpperCase() + word.slice(1, word.length).toLowerCase()).join(' ');
+//     return result
+// }
+// console.log(sentenceCase('PHP exercises.  python exercises.'));
+
+
+
+/*Write a JavaScript function to create a zero-filled value with an optional +, - sign.
+Test Data :
+console.log(zeroFill(120, 5, '-'));
+"+00120"
+console.log(zeroFill(29, 4));
+"0029"**/
+
+
+// function zeroFill(number, numberdigit, sign='')
+// {   
+
+//    let extra_number ="" ;
+//    let  str = number.toString();
+
+//    let diff = (numberdigit) - str.length;
+//    console.log(diff)
+//    if(str.length > numberdigit){
+//        str =  str.slice(0, numberdigit);
+//    }
+//    else{
+//         while(diff > 0){
+//             extra_number = extra_number + "1"
+//             diff--;
+//         }
+//         str = sign + extra_number + str;
+//    }
+// return str
+// }
+
+
+// console.log(zeroFill(15, 356,'-'))
+
+/*Write a JavaScript function to test case-insensitive (except special Unicode characters) string comparison.
+Test Data :
+console.log(compare_strings('abcd', 'AbcD'));
+true
+console.log(compare_strings('ABCD', 'Abce'));
+false*/
+
+// function compare_strings(str1, str2){
+//     return str1.toUpperCase() == str2.toUpperCase();
+// }
+// console.log(compare_strings('abcd', 'AbcD'));
+// console.log(compare_strings('ABCD', 'Abce'));
+
+/*Write a JavaScript function to create a case-insensitive search.
+Test Data :
+console.log(case_insensitive_search('JavaScript Exercises', 'exercises'));
+"Matched"
+console.log(case_insensitive_search('JavaScript Exercises', 'Exercises'));
+"Matched"
+console.log(case_insensitive_search('JavaScript Exercises', 'Exercisess'));
+"Not Matched"*/
+
+
+// function case_insensitive_search(str, word){
+//     str =  str.toLowerCase();
+//     word = word.toLowerCase();
+//    let result =  str.includes(word);
+
+
+//    if(result){return "Matched"}
+//    else{return "Not Matched"}
+// }
+// console.log(case_insensitive_search('JavaScript Exercises', 'exercises'));
+// console.log(case_insensitive_search('JavaScript Exercises', 'Exercises'));
+// console.log(case_insensitive_search('JavaScript Exercises', 'Exercisess'));
+
+
+/*Write a JavaScript function to uncapitalize the first character of a string.
+Test Data :
+console.log(Uncapitalize('Js string exercises'));
+"js string exercises"*/
+
+
+
+// function uncapitalize(str){
+//     return str[0].toLowerCase() + str.slice(1, str.length)
+// }
+// console.log(uncapitalize('Js string exercises'));
+
+
+/*Write a JavaScript function to uncapitalize the first letter of each word of a string.
+Test Data :
+console.log(unCapitalize_Words('Js String Exercises'));
+"js string exercises"*/
+
+// function unCapitalize_Words(str){
+//     if(str.length ===0 ) return "undefined";
+//     str = str.split(' ');
+//     let result = str.map((word)=>{ return word.charAt(0).toLowerCase() + word.slice(1)}).join(' ')
+//     return result
+// }
+
+// console.log(unCapitalize_Words('Js String Exercises'));
+
+
+
+/*Write a JavaScript function to capitalize each word in the string.
+Test Data :
+console.log(capitalizeWords('js string exercises'));
+"JS STRING EXERCISES"**/
+
+
+// function capitalize_Words(str){
+//     return str.toUpperCase();
+// }
+
+// console.log(capitalize_Words('js string exercises'));
+
+/*Uncapitalize All Words
+
+Write a JavaScript function to uncapitalize each word in the string.
+Test Data :
+console.log(unCapitalizeWords('JS STRING EXERCISES'));
+"js string exercises"*/
+
+
+// function unCapitalizeWords(str){
+//     str = str.replace(symbolRegex,'').toLowerCase();
+//     return str
+// }
+
+// console.log(unCapitalizeWords('JS STRING EXERCISES'));
+
+
+/*Write a JavaScript function to test whether the character at the index provided is upper case.
+Test Data :
+console.log(isUpperCaseAt('Js STRING EXERCISES', 1));
+false*/
+
+// function isUpperCaseAt(str, num) {
+
+//     if (num < 0 || num > str.length) return null;
+
+//     if (str[num] == str[num].toUpperCase()) return true
+//     else return false;
+// }
+// console.log(isUpperCaseAt('Js STRING EXERCISES', 1));
+
+
+/*Write a JavaScript function to test whether the character at the given (character) index is lower case.
+Test Data :
+console.log(isLowerCaseAt ('Js STRING EXERCISES', 1));
+true*/
+// function isLowerCaseAt(str, num) {
+
+//     if (num < 0 || num > str.length) return null;
+
+//     if (str[num] == str[num].toLowerCase()) return true
+//     else return false;
+// }
+// console.log(isLowerCaseAt('Js STRING EXERCISES', 3));
+
+
+/*Write a JavaScript function to test whether a string starts with a specified string.
+Test Data :
+console.log(startsWith('js string exercises', 'js'));
+true*/
+
+// function startsWith(str, word){
+//     if(!str || !word ) return null;
+
+//     return str.startsWith(word) 
+// }
+// console.log(startsWith('js string exercises', 'js'));
+
+
+/*Write a JavaScript function to test whether a string ends with a specified string.
+Test Data :
+console.log(endsWith('JS string exercises', 'exercises'));
+true*/
+
+// function endsWith(str, word){
+//     if(!str || !word ) return null;
+
+//     return str.endsWith(word) 
+// }
+// console.log(endsWith('js string exercises', 'exercises'));
