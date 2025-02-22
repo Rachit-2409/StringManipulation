@@ -690,3 +690,107 @@ true*/
 //     return str.endsWith(word) 
 // }
 // console.log(endsWith('js string exercises', 'exercises'));
+
+/*Write a JavaScript function to get a guid (an acronym for 'Globally Unique Identifier'?) of the specified length, or 32 by default.
+Test Data :
+console.log(guid());
+console.log(guid(15));
+"hRYilcoV7ajokxsYFl1dba41AyE0rUQR"
+"b7pwBqrZwqaDrex"*/
+
+// function guid(size=32){
+//     let words = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~`!@#$%^&*()_+-={}[]:;><?'
+//     let result = "";
+//     for(let x = 0; x<size; x++){
+//         let randomNumber = Math.floor(Math.random()*size)+1;
+//         result = result + words[randomNumber];
+//     }
+//     return result;
+// }
+// console.log(guid());
+// console.log(guid(15));
+
+
+/*Write a JavaScript program to check if a given string contains alphanumeric characters that are palindromes regardless of special characters and letter case.
+A palindrome is a word, number, phrase, or other sequence of symbols that reads the same backwards as forwards, such as the words madam or racecar, the date/time stamps 11/11/11 11:11 and 02/02/2020, and the sentence: "A man, a plan, a canal - Panama". The 19-letter Finnish word saippuakivikauppias (a soapstone vendor), is the longest single-word palindrome in everyday use, while the 12-letter term tattarrattat (from James Joyce in Ulysses) is the longest in English.
+Test Data :
+('$22_|1372^2731|_22') -> true
+('12%^&2') -> false
+('234%$$%432') -> true
+(1234) -> "It must be string"
+('aba%$aba') -> true
+('Aba%$aba') -> true*/
+
+// function palindrome(str){
+//     if(typeof str != "string") return null
+//     str = str.replace(symbolRegex, '');
+//     return str.split('').reverse().join('') == str
+// }
+
+// console.log(palindrome('$22_|1372^2731|_22'))
+// console.log(palindrome('12%^&2'))
+// palindrome('234%$$%432')
+
+/*Write a JavaScript function to check a given string is in Flat case or not.
+Flat case: As the name implies, flatcase refers to the use of lowercase letters, with no spaces between words.
+Test Data :
+('j') -> true
+('java exercises') -> false
+('JavaScriptExercises') -> false
+('javascriptexercises') -> true
+(12356) -> "It must be a string."*/
+
+
+// function flatcase(str){
+//     if(typeof str != "string") return null;
+
+//     for(let x =0; x<str.length; x++){
+//         if(str[x] != str[x].toLocaleLowerCase() || str[x] ==" "){
+//             return false
+//         }
+//     }
+//     return true
+// }
+
+
+// console.log(flatcase('j'));
+// console.log(flatcase('java Excersise'))
+// console.log(flatcase('JavaScriptExercises'))
+
+
+/*Kebab case: "the-quick-brown-fox-jumps-over-the-lazy-dog"
+Similar to snake case, above, except hyphens rather than underscores are used to replace spaces. It is also known as spinal case, param case, Lisp case in reference to the Lisp  programming language, or dash case (or illustratively as kebab-case).
+Write a JavaScript function to check a given string is in Kebab case or not.*/
+
+
+// function kebabtest(str){
+//     if(typeof str != "string") return null
+    
+
+//     for(let x = 0; x<str.length; x++){
+//         if(str[x] != str[x].toLowerCase() || str[x]== ' ' || str[x] == '_' ){
+//             return false
+//         }
+//     }
+//     return str.includes('-') && !str.includes('--')
+// }
+
+// console.log(kebabtest("the-quick-brown-fox-jumps-over-the-lazy-dog"))
+
+
+
+
+/*Write a JavaScript function to reverse words in a given string.
+Test Data :
+("abc") -> "cba"
+("JavaScript Exercises") -> "tpircSavaJ sesicrexE"
+(1234) -> "It must be a string."*/
+
+// function reversef(str){
+//     str = str.split('').reverse().join('');
+//     return str;
+// }
+
+
+// console.log(reversef("JavaScript Exercises"))
+// console.log(reversef("cba"))
